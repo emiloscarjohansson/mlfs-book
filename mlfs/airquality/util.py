@@ -48,7 +48,7 @@ def get_historical_weather(city, start_date,  end_date, latitude, longitude):
     daily_precipitation_sum = daily.Variables(1).ValuesAsNumpy()
     daily_wind_speed_10m_max = daily.Variables(2).ValuesAsNumpy()
     daily_wind_direction_10m_dominant = daily.Variables(3).ValuesAsNumpy()
-    #daily_relative_humidity_2m_mean = daily.Variables(4).ValuesAsNumpy()
+    daily_relative_humidity_2m_mean = daily.Variables(4).ValuesAsNumpy()
 
     daily_data = {"date": pd.date_range(
         start=pd.to_datetime(daily.Time(), unit="s"),
@@ -60,7 +60,7 @@ def get_historical_weather(city, start_date,  end_date, latitude, longitude):
     daily_data["precipitation_sum"] = daily_precipitation_sum
     daily_data["wind_speed_10m_max"] = daily_wind_speed_10m_max
     daily_data["wind_direction_10m_dominant"] = daily_wind_direction_10m_dominant
-    #daily_data["relative_humidity_2m_mean"] = daily_relative_humidity_2m_mean
+    daily_data["relative_humidity_2m_mean"] = daily_relative_humidity_2m_mean
 
     daily_dataframe = pd.DataFrame(data=daily_data)
     daily_dataframe = daily_dataframe.dropna()
@@ -100,7 +100,7 @@ def get_hourly_weather_forecast(city, latitude, longitude):
     hourly_precipitation = hourly.Variables(1).ValuesAsNumpy()
     hourly_wind_speed_10m = hourly.Variables(2).ValuesAsNumpy()
     hourly_wind_direction_10m = hourly.Variables(3).ValuesAsNumpy()
-    #hourly_relative_humidity_2m = hourly.Variables(4).ValuesAsNumpy()
+    hourly_relative_humidity_2m = hourly.Variables(4).ValuesAsNumpy()
 
     hourly_data = {"date": pd.date_range(
         start = pd.to_datetime(hourly.Time(), unit = "s"),
@@ -112,7 +112,7 @@ def get_hourly_weather_forecast(city, latitude, longitude):
     hourly_data["precipitation_sum"] = hourly_precipitation
     hourly_data["wind_speed_10m_max"] = hourly_wind_speed_10m
     hourly_data["wind_direction_10m_dominant"] = hourly_wind_direction_10m
-    #hourly_data["relative_humidity_2m_mean"] = hourly_relative_humidity_2m
+    hourly_data["relative_humidity_2m_mean"] = hourly_relative_humidity_2m
 
     hourly_dataframe = pd.DataFrame(data = hourly_data)
     hourly_dataframe = hourly_dataframe.dropna()
