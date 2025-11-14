@@ -4,6 +4,10 @@ data/aqi-api-key.txt
 
 .env
 
+docs/model_versions
+
+notebooks/airquality/air_quality_model/model.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
