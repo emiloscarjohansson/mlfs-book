@@ -28,8 +28,7 @@ or
     make aq-all
 
 
-
-## Feldera
+## Feldera testing
 
 
 mkdir -p /tmp/c.app.hopsworks.ai
